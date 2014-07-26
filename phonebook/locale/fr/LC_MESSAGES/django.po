@@ -1,0 +1,122 @@
+# DJANGO PHONEBOOK APP.
+# Copyright (C) 2014
+# Julien DRECQ <drecq.julien@gmail.com>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-26 21:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Julien DRECQ <drecq.julien@gmail.com>\n"
+"Language-Team: FR <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: forms.py:6 forms.py:7
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: forms.py:9 forms.py:10
+msgid "Password"
+msgstr "Mot de passe"
+
+#: forms.py:15
+msgid "Fistname"
+msgstr "Prénom"
+
+#: forms.py:18
+msgid "Lastname"
+msgstr "Nom"
+
+#: forms.py:21 templates/phonebook/lists_contacts.html:22
+msgid "Email"
+msgstr "Mail"
+
+#: forms.py:23 templates/phonebook/lists_contacts.html:23
+msgid "Phone"
+msgstr "Téléphone"
+
+#: forms.py:25 templates/phonebook/lists_contacts.html:24
+msgid "Mobile phone"
+msgstr "Téléphone portable"
+
+#: templates/phonebook/call.html:5 templates/phonebook/call.html.py:15
+msgid "Calling"
+msgstr "Appel en cours"
+
+#: templates/phonebook/call.html:19
+msgid ""
+"This page will be closed automatically in 5 seconds, although click here."
+msgstr ""
+"La page se fermera automatiquement au bout de 5 secondes, sinon cliquez sur "
+"ce lien."
+
+#: templates/phonebook/edit_contact.html:5
+msgid "Edit contact"
+msgstr "Modification d'un contact"
+
+#: templates/phonebook/edit_contact.html:61
+msgid "Back"
+msgstr "Retour"
+
+#: templates/phonebook/edit_contact.html:62
+msgid "Save"
+msgstr "Enregistrer"
+
+#: templates/phonebook/lists_contacts.html:5
+msgid "My contacts"
+msgstr "Mes contacts"
+
+#: templates/phonebook/lists_contacts.html:16
+msgid "New contact"
+msgstr "Nouveau contact"
+
+#: templates/phonebook/lists_contacts.html:21
+msgid "Contact"
+msgstr "Contact"
+
+#: templates/phonebook/lists_contacts.html:50
+msgid "Do you really want to delete contact ?"
+msgstr "Etes-vous sûr de vouloir supprimer ce contact ?"
+
+#: templates/phonebook/login.html:10
+msgid "Login page"
+msgstr "Page d'identification"
+
+#: templates/phonebook/login.html:13
+msgid "Username or password is not correct."
+msgstr "Utilisateur ou mot de passe incorrect."
+
+#: templates/phonebook/login.html:18
+msgid "Sign in"
+msgstr "Se connecter"
+
+#: templates/phonebook/base/header.html:25
+#: templates/phonebook/modal/change_lang.html:8
+msgid "Change language"
+msgstr "Changez la langue"
+
+#: templates/phonebook/base/header.html:32
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: templates/phonebook/modal/change_lang.html:25
+msgid "Save language"
+msgstr "Enregistrer la langue"
+
+#: templates/phonebook/modal/change_lang.html:26
+#: templates/phonebook/modal/new_contact.html:51
+msgid "Close"
+msgstr "Fermer"
+
+#: templates/phonebook/modal/new_contact.html:8
+msgid "Add new contact"
+msgstr "Ajout d'un nouveau contact"
+
+#: templates/phonebook/modal/new_contact.html:50
+msgid "Save contact"
+msgstr "Enregistrer le contact"

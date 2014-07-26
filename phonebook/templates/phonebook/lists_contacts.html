@@ -1,0 +1,67 @@
+{% extends "phonebook/base/base.html" %}
+
+{% load i18n %}
+
+{% block title %} {% trans 'My contacts' %} {% endblock %}
+
+{% block header %}
+    {% include 'phonebook/base/header.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+    <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#new-contact">
+    <span class="glyphicon glyphicon-plus-sign"></span>
+    {% trans 'New contact' %}</button>
+
+    <table class="table table-condensed table-lists-contacts">
+        <thead>
+            <tr>
+                <th>{% trans 'Contact' %}</th>
+                <th>{% trans 'Email' %}</th>
+                <th class="phone">{% trans 'Phone' %}</th>
+                <th class="phone">{% trans 'Mobile phone' %}</th>
+                <th>Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td> {{ contact.firstname }} {{ contact.lastname }}</td>
+                <td> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
+                <td>
+                    {% if contact.phone %}
+                        <a target="{%  if URL_CLICK_TO_CALL %} _blank {% endif %}"
+                           href="{%  if URL_CLICK_TO_CALL %} {% url 'phonebook_call' num=contact.phone %} {% endif %}">
+                            {{ contact.phone }}
+                        </a>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if contact.mobile_phone %}
+                        <a target="{%  if URL_CLICK_TO_CALL %} _blank {% endif %}"
+                           href="{%  if URL_CLICK_TO_CALL %} {% url 'phonebook_call' num=contact.mobile_phone %} {% endif %}">
+                            {{ contact.mobile_phone }}
+                        </a>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'phonebook_edit' contact_id=contact.id %}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a href="{% url 'phonebook_delete' contact_id=contact.id %}"
+                       onclick="return confirm('{% trans 'Do you really want to delete contact ?' %}')" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+
+{% block new_contact %}
+    {% include 'phonebook/modal/new_contact.html' %}
+{% endblock %}
+
+{% endblock %}

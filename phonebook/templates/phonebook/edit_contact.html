@@ -1,0 +1,67 @@
+{% extends "phonebook/base/base.html" %}
+
+{% load i18n %}
+
+{% block title %} {% trans 'Edit contact' %} {% endblock %}
+
+{% block header %}
+    {% include 'phonebook/base/header.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form class="form-horizontal" method="post" action="{% url 'phonebook_edit' contact_id=contact.id %}">
+                {% csrf_token %}
+                <fieldset>
+                    <div class="control-group">
+                      <label class="control-label" for="{{ contact_form.firstname.id_for_label }}">
+                          {{ contact_form.firstname.label }} :</label>
+                      <div class="controls">
+                        {{ contact_form.firstname }}
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label" for="{{ contact_form.lastname.id_for_label }}">
+                          {{ contact_form.lastname.label }} :</label>
+                      <div class="controls">
+                        {{ contact_form.lastname }}
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label" for="{{ contact_form.email.id_for_label }}">
+                          {{ contact_form.email.label }} :</label>
+                      <div class="controls">
+                        {{ contact_form.email }}
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label" for="{{ contact_form.phone.id_for_label }}">
+                          {{ contact_form.phone.label }} :</label>
+                      <div class="controls">
+                        {{ contact_form.phone }}
+                      </div>
+                    </div>
+
+                    <div class="control-group">
+                      <label class="control-label" for="{{ contact_form.mobile_phone.id_for_label }}">
+                          {{ contact_form.mobile_phone.label }} :</label>
+                      <div class="controls">
+                        {{ contact_form.mobile_phone }}
+                      </div>
+                    </div>
+
+                </fieldset>
+                <br />
+                <a href="{% url 'phonebook_lists_contacts' %}" class="btn btn-danger pull-left"
+                   type="submit">{% trans 'Back' %}</a>
+                <button class="btn btn-info pull-right" type="submit">{% trans 'Save' %}</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

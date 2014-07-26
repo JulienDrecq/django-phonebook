@@ -1,0 +1,57 @@
+{% load i18n %}
+<!-- Modal NEW CONTACT -->
+<div class="modal fade" id="new-contact" tabindex="-1" role="dialog" aria-labelledby="new-contact-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="new-contact-label">{% trans "Add new contact" %}</h4>
+            </div>
+            <form class="form-horizontal" method="post" action="{% url 'phonebook_new_contact' %}">
+            {% csrf_token %}
+                <div class="modal-body">
+                    <fieldset>
+                        <div class="control-group">
+                          <label class="control-label" for="{{ newcontact_form.firstname.id_for_label }}">{{ newcontact_form.firstname.label }} :</label>
+                          <div class="controls">
+                            {{ newcontact_form.firstname }}
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="{{ newcontact_form.lastname.id_for_label }}">{{ newcontact_form.lastname.label }} :</label>
+                          <div class="controls">
+                            {{ newcontact_form.lastname }}
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="{{ newcontact_form.email.id_for_label }}">{{ newcontact_form.email.label }} :</label>
+                          <div class="controls">
+                            {{ newcontact_form.email }}
+                          </div>
+                        </div>
+
+                        <div class="control-group">
+                          <label class="control-label" for="{{ newcontact_form.phone.id_for_label }}">{{ newcontact_form.phone.label }} :</label>
+                          <div class="controls">
+                            {{ newcontact_form.phone }}
+                          </div>
+                        </div>
+                        <div class="control-group">
+                          <label class="control-label" for="{{ newcontact_form.mobile_phone.id_for_label }}">{{ newcontact_form.mobile_phone.label }} :</label>
+                          <div class="controls">
+                            {{ newcontact_form.mobile_phone }}
+                          </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-info" type="submit">{% trans 'Save contact' %}</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End MODAL NEW CONTACT -->

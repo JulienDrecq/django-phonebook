@@ -1,0 +1,32 @@
+{% load i18n %}
+<!-- Modal CHANGE LANG -->
+<div class="modal fade" id="change-lang" tabindex="-1" role="dialog" aria-labelledby="change-lang-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="change-lang-label">{% trans "Change language" %}</h4>
+            </div>
+            <form class="form-horizontal" action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+                <div class="modal-body">
+                    <input name="next" type="hidden" value="{% url 'phonebook_login_page' %}" />
+                    <div class="form-group">
+                        <div class="col-sm-12 col-xs-12 col-lg-12">
+                            <select class="form-control lang-select" name="language">
+                            {% for lang in LANGUAGES %}
+                                <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>{{ lang.1 }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-info" type="submit">{% trans 'Save language' %}</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- END Modal CHANGE LANG -->

@@ -1,0 +1,37 @@
+{% extends "phonebook/base/base.html" %}
+
+{% load i18n %}
+
+{% block title %} {% trans 'Calling' %} {% endblock %}
+
+{% block header %}
+    {% include 'phonebook/base/header.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <p>
+            <h3 class="calling">{% trans 'Calling' %}</h3>
+        </p>
+        <p class="calling">
+            <a href="javascript:window.close()">
+                {%  trans 'This page will be closed automatically in 5 seconds, although click here.' %}
+            </a>
+        </p>
+    </div>
+</div>
+
+<iframe name="calling" SRC="{{ url_click_to_call }}"
+        scrolling="yes" height="740" width="100%" FRAMEBORDER="yes"></iframe>
+
+<script type="text/javascript">
+    window.onload = Init;
+    function Init() {
+        window.setInterval('Close()', 5000);
+    }
+    function Close() {
+        window.close()
+    }
+</script>
+{% endblock %}

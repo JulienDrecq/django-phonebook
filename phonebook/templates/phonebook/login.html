@@ -1,0 +1,36 @@
+{% extends "phonebook/base/base.html" %}
+
+{% block title %} Login page{% endblock %}
+{% load i18n %}
+{% block content %}
+<div class="container">
+    <div class="form-login">
+        <form class="form-signin" method="post" action="{% url 'phonebook_login_page' %}">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">{% trans "Login page" %}</h2>
+            {% if error %}
+                <div class="alert alert-danger">
+                    {% trans "Username or password is not correct." %}
+                </div>
+            {% endif %}
+            {{ login_form.username }}
+            {{ login_form.password }}
+            <button class="btn btn-primary btn-block" type="submit">{%  trans "Sign in" %}</button>
+        </form>
+        <form class="form-lang set-lang" action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{% url 'phonebook_login_page' %}" />
+            <div class="form-group">
+                <div class="col-sm-12 col-xs-12 col-lg-12">
+                    <select class="form-control lang-select" name="language">
+                    {% for lang in LANGUAGES %}
+                        <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>{{ lang.1 }}</option>
+                    {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
