@@ -2,7 +2,6 @@
 
 **Design with Bootstrap v3 framework**
 (http://getbootstrap.com/)
-======================================
 
 Phonebook is a simple Django app to manage contacts (lastname, firstname, mail, phone, mobile phone) and integred ``click2call`` .
 Application development and testing with django v1.7.6
