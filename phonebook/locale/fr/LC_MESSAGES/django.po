@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-18 10:56+0000\n"
+"POT-Creation-Date: 2015-06-18 20:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Julien DRECQ <drecq.julien@gmail.com>\n"
 "Language-Team: FR <LL@li.org>\n"
@@ -15,6 +15,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: DjangoPhonebook/settings.py:89
+msgid "English"
+msgstr ""
+
+#: DjangoPhonebook/settings.py:90
+msgid "French"
+msgstr ""
 
 #: phonebook/forms.py:6 phonebook/forms.py:7
 msgid "Username"
@@ -43,6 +51,10 @@ msgstr "Téléphone"
 #: phonebook/forms.py:25 phonebook/templates/phonebook/lists_contacts.html:37
 msgid "Mobile phone"
 msgstr "Téléphone portable"
+
+#: phonebook/templates/phonebook/base/header.html:18
+msgid "Welcome"
+msgstr "Bienvenue"
 
 #: phonebook/templates/phonebook/base/header.html:25
 #: phonebook/templates/phonebook/modal/change_lang.html:8
@@ -101,15 +113,16 @@ msgstr "Contact"
 msgid "Do you really want to delete contact ?"
 msgstr "Etes-vous sûr de vouloir supprimer ce contact ?"
 
-#: phonebook/templates/phonebook/login.html:10
+#: phonebook/templates/phonebook/login.html:5
+#: phonebook/templates/phonebook/login.html:12
 msgid "Login page"
 msgstr "Page d'identification"
 
-#: phonebook/templates/phonebook/login.html:13
+#: phonebook/templates/phonebook/login.html:15
 msgid "Username or password is not correct."
 msgstr "Utilisateur ou mot de passe incorrect."
 
-#: phonebook/templates/phonebook/login.html:18
+#: phonebook/templates/phonebook/login.html:20
 msgid "Sign in"
 msgstr "Se connecter"
 

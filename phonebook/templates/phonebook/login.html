@@ -1,7 +1,9 @@
 {% extends "phonebook/base/base.html" %}
 
-{% block title %} Login page{% endblock %}
 {% load i18n %}
+
+{% block title %} {% trans "Login page" %} {% endblock %}
+
 {% block content %}
 <div class="container">
     <div class="form-login">
@@ -15,7 +17,7 @@
             {% endif %}
             {{ login_form.username }}
             {{ login_form.password }}
-            <button class="btn btn-primary btn-block" type="submit">{%  trans "Sign in" %}</button>
+            <button class="btn btn-info btn-block" type="submit">{%  trans "Sign in" %}</button>
         </form>
         <form class="form-lang set-lang" action="{% url 'set_language' %}" method="post">
             {% csrf_token %}
