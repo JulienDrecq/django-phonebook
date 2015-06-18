@@ -71,6 +71,5 @@ Optional parameters
 TODO
 ----
 
-    - Search field contact
     - Create, edit, delete groups on contacts
     - Exports contacts
