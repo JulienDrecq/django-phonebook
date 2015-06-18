@@ -12,7 +12,7 @@ class LoginForm(forms.Form):
 
 
 class ContactForm(forms.Form):
-    firstname = forms.CharField(label=_("Fistname"), max_length=100,
+    firstname = forms.CharField(label=_("Firstname"), max_length=100,
                                 widget=forms.TextInput(attrs={'class': 'form-control', 'required': '', 'tabindex': 1,
                                                               'autofocus': '1'}))
     lastname = forms.CharField(label=_("Lastname"), max_length=100,

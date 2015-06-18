@@ -58,8 +58,14 @@
                 </fieldset>
                 <br />
                 <a href="{% url 'phonebook_lists_contacts' %}" class="btn btn-danger pull-left"
-                   type="submit">{% trans 'Back' %}</a>
-                <button class="btn btn-info pull-right" type="submit">{% trans 'Save' %}</button>
+                   type="submit">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                    {% trans 'Back' %}
+                </a>
+                <button class="btn btn-info pull-right" type="submit">
+                    <span class="glyphicon glyphicon-save"></span>
+                    {% trans 'Save' %}
+                </button>
             </form>
         </div>
     </div>

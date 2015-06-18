@@ -1,0 +1,25 @@
+# DJANGO PHONEBOOK APP.
+# Copyright (C) 2014
+# Julien DRECQ <drecq.julien@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-18 10:09+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: phonebook/static/js/phonebook.js:29
+msgid "Searching for:"
+msgstr "Recherche pour:"
+
+#: phonebook/static/js/phonebook.js:54
+msgid "No entries found."
+msgstr "Pas de résultats."

@@ -53,7 +53,7 @@ Optional parameters
         )
         
         LOCALE_PATHS = (
-            os.path.join(BASE_DIR, 'phonebook/locale')
+            os.path.join(BASE_DIR, 'phonebook/locale'),
         )
         
         
@@ -64,6 +64,7 @@ Optional parameters
         
         TEMPLATE_CONTEXT_PROCESSORS = (
             ...
+            'django.contrib.auth.context_processors.auth',
             'django.core.context_processors.i18n',
         )
 

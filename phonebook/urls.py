@@ -1,8 +1,18 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.views.i18n import javascript_catalog
 admin.autodiscover()
 
-urlpatterns = patterns('phonebook',
+js_info_dict = {
+    'packages': ('phonebook',),
+}
+
+urlpatterns = [
+    url(r'^jsi18n/$', javascript_catalog, js_info_dict),
+]
+
+urlpatterns += patterns('phonebook',
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^i18n/', include('django.conf.urls.i18n')),
     url(r'^$', 'views.view_login', name='phonebook_login_page'),
     url(r'^logout/', 'views.view_logout', name='phonebook_logout'),

@@ -11,7 +11,7 @@ class Contact(models.Model):
     user_id = models.ForeignKey(User)
 
     def __unicode__(self):
-        return u"%s %s" % (self.fistname, self.lastname)
+        return u"%s %s" % (self.firstname, self.lastname)
 
     def __str__(self):
-        return "%s %s" % (self.fistname, self.lastname)
+        return "%s %s" % (self.firstname, self.lastname)

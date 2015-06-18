@@ -22,8 +22,14 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-info" type="submit">{% trans 'Save language' %}</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
+                    <button class="btn btn-info" type="submit">
+                        <span class="glyphicon glyphicon-save"></span>
+                        {% trans 'Save language' %}
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        {% trans 'Close' %}
+                    </button>
                 </div>
             </form>
         </div>
