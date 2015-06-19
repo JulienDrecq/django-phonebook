@@ -72,4 +72,3 @@ TODO
 ----
 
     - Create, edit, delete groups on contacts
-    - Exports contacts

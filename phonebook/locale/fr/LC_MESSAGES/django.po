@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-18 20:47+0000\n"
+"POT-Creation-Date: 2015-06-19 10:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Julien DRECQ <drecq.julien@gmail.com>\n"
 "Language-Team: FR <LL@li.org>\n"
@@ -40,15 +40,15 @@ msgstr "Prénom"
 msgid "Lastname"
 msgstr "Nom"
 
-#: phonebook/forms.py:21 phonebook/templates/phonebook/lists_contacts.html:35
+#: phonebook/forms.py:21 phonebook/templates/phonebook/lists_contacts.html:37
 msgid "Email"
 msgstr "Mail"
 
-#: phonebook/forms.py:23 phonebook/templates/phonebook/lists_contacts.html:36
+#: phonebook/forms.py:23 phonebook/templates/phonebook/lists_contacts.html:38
 msgid "Phone"
 msgstr "Téléphone"
 
-#: phonebook/forms.py:25 phonebook/templates/phonebook/lists_contacts.html:37
+#: phonebook/forms.py:25 phonebook/templates/phonebook/lists_contacts.html:39
 msgid "Mobile phone"
 msgstr "Téléphone portable"
 
@@ -61,11 +61,15 @@ msgstr "Bienvenue"
 msgid "Change language"
 msgstr "Changez la langue"
 
-#: phonebook/templates/phonebook/base/header.html:33
+#: phonebook/templates/phonebook/base/header.html:32
+msgid "Exports contacts"
+msgstr "Exports des contacts"
+
+#: phonebook/templates/phonebook/base/header.html:40
 msgid "Admin page"
 msgstr "Page d'administration"
 
-#: phonebook/templates/phonebook/base/header.html:41
+#: phonebook/templates/phonebook/base/header.html:48
 msgid "Logout"
 msgstr "Déconnexion"
 
@@ -105,11 +109,11 @@ msgstr "Rechercher un contact"
 msgid "New contact"
 msgstr "Nouveau contact"
 
-#: phonebook/templates/phonebook/lists_contacts.html:34
+#: phonebook/templates/phonebook/lists_contacts.html:36
 msgid "Contact"
 msgstr "Contact"
 
-#: phonebook/templates/phonebook/lists_contacts.html:65
+#: phonebook/templates/phonebook/lists_contacts.html:67
 msgid "Do you really want to delete contact ?"
 msgstr "Etes-vous sûr de vouloir supprimer ce contact ?"
 

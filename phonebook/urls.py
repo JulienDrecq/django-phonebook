@@ -21,4 +21,5 @@ urlpatterns += patterns('phonebook',
     url(r'^delete/(?P<contact_id>\d+)/$', 'views.view_delete', name='phonebook_delete'),
     url(r'^edit/(?P<contact_id>\d+)/$', 'views.view_edit_contact', name='phonebook_edit'),
     url(r'^call/(?P<num>\d+)/$', 'views.view_call', name='phonebook_call'),
+    url(r'^exports_contacts/$', 'views.exports_contacts', name='phonebook_exports_contacts'),
 )

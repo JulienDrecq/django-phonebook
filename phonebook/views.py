@@ -7,6 +7,9 @@ from django.core.urlresolvers import reverse
 from phonebook.models import Contact
 from django.db.models import Q
 from phonebook import settings
+from django.http import HttpResponse
+import csv
+from datetime import datetime
 
 URL_RENDER = {
     'view_login': 'phonebook/login.html',
@@ -104,3 +107,16 @@ def view_edit_contact(request, contact_id):
 def view_call(request, num=0):
     url_click_to_call = str(settings.URL_CLICK_TO_CALL) + str(num)
     return render(request, URL_RENDER['view_call'], locals())
+
+@login_required(login_url='/phonebook/')
+def exports_contacts(request):
+    response = HttpResponse(content_type='text/csv')
+
+    response['Content-Disposition'] = 'attachment; filename="exports_contacts_%s.csv"' % \
+                                      datetime.now().strftime('%Y%m%d_%H%M%S')
+    writer = csv.writer(response)
+    writer.writerow(['Firstname', 'Lastname', 'Email', 'Phone', 'Mobile phone'])
+    contacts = Contact.objects.filter(Q(user_id=request.user)).order_by('id')
+    for contact in contacts:
+        writer.writerow([contact.firstname, contact.lastname, contact.email, contact.phone, contact.mobile_phone])
+    return response

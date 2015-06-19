@@ -26,6 +26,13 @@
                         </a>
                     </li>
 
+                    <li>
+                        <a href="{% url 'phonebook_exports_contacts' %}">
+                            <span class="glyphicon glyphicon-floppy-save"></span>
+                            {% trans 'Exports contacts' %}
+                        </a>
+                    </li>
+
                     {% if request.user.is_staff %}
                         <li>
                             <a target="_blank" href="{% url 'admin:index' %}">
