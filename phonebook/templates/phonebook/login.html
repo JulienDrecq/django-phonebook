@@ -25,8 +25,9 @@
             <div class="form-group">
                 <div class="col-sm-12 col-xs-12 col-lg-12">
                     <select class="form-control lang-select" name="language">
-                    {% for lang in LANGUAGES %}
-                        <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>{{ lang.1 }}</option>
+                    {% get_available_languages as languages %}
+                    {% for code, name in languages %}
+                        <option value="{{ code }}" {% if code == LANGUAGE_CODE %} selected="selected"{% endif %}>{{ name }}</option>
                     {% endfor %}
                     </select>
                 </div>

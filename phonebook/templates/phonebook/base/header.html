@@ -33,7 +33,7 @@
                         </a>
                     </li>
 
-                    {% if request.user.is_staff %}
+                    {% if user.is_staff %}
                         <li>
                             <a target="_blank" href="{% url 'admin:index' %}">
                                 <span class="glyphicon glyphicon-cog"></span>
