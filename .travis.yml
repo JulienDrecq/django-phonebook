@@ -1,0 +1,13 @@
+language: python
+python:
+  - "2.7"
+script:
+  - export DJANGO_SETTINGS_MODULE=settings.test
+  - coverage run --source='phonebook' manage.py test phonebook
+after_success:
+  - coveralls
+notifications:
+  - recipients:
+    - drecq.julien@gmail.com
+  - on_success: change
+  - on_failure: change
