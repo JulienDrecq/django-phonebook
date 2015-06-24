@@ -1,8 +1,12 @@
 language: python
 python:
   - "2.7"
+env:
+  - DJANGO=1.8.2
+install:
+  - pip install coverage --use-mirrors
+  - pip install -q Django==$DJANGO --use-mirrors -I
 script:
-  - export DJANGO_SETTINGS_MODULE=settings.test
   - coverage run --source='phonebook' manage.py test phonebook
 after_success:
   - coveralls
