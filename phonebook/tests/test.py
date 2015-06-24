@@ -2,6 +2,7 @@ from django.test import TestCase
 from phonebook.models import Contact
 from phonebook.forms import LoginForm, ContactForm
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 
 class ContactTestCase(TestCase):
@@ -40,7 +41,39 @@ class ContactTestCase(TestCase):
         form = ContactForm(data=form_data)
         self.assertEqual(form.is_valid(), True)
 
-    def test_call_view_lists_contacts(self):
+
+class ContactViewTestCase(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username="user_test", password="password_test")
         self.client.login(username=self.user.username, password='password_test')
-        response = self.client.get('/lists_contacts/')
+        self.contact = Contact.objects.create(firstname='Test firstname', lastname='Test lastname',
+                                              email='test@test.fr', phone='0606060606', user_id=self.user)
+        self.assertIsNotNone(self.contact)
+
+    def test_call_view_lists_contacts(self):
+        response = self.client.get(reverse('phonebook_lists_contacts'))
         self.assertEqual(response.status_code, 200)
+
+    def test_call_view_edit_contact(self):
+        response = self.client.get(reverse('phonebook_edit', kwargs={'contact_id': self.contact.id}))
+        self.assertEqual(response.status_code, 200)
+
+    def test_call_view_call(self):
+        response = self.client.get(reverse('phonebook_call', kwargs={'num': self.contact.phone}))
+        self.assertEqual(response.status_code, 200)
+
+    def test_call_view_exports_contacts(self):
+        response = self.client.get(reverse('phonebook_exports_contacts'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_call_view_delete_contact(self):
+        response = self.client.get(reverse('phonebook_delete', kwargs={'contact_id': self.contact.id}))
+        self.assertRedirects(response, reverse('phonebook_lists_contacts'))
+
+    def test_call_logout(self):
+        response = self.client.get(reverse('phonebook_logout'))
+        self.assertRedirects(response, reverse('phonebook_login_page'))
+
+    def test_call_view_edit_contact_with_fail(self):
+        response = self.client.get(reverse('phonebook_edit', kwargs={'contact_id': 9999}))
+        self.assertRedirects(response, reverse('phonebook_lists_contacts'))
