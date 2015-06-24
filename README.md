@@ -10,22 +10,19 @@ Phonebook is a simple Django app to manage contacts (lastname, firstname, mail, 
 Application development and testing with django v1.8.2
 
 
-.. contents:: Contents
-    :depth: 3
-
 Quick start
 -----------
 
 1. Add ``phonebook`` to your INSTALLED_APPS setting like this::
 
-      INSTALLED_APPS = (
+        INSTALLED_APPS = (
           ...
           'phonebook',
-      )
+        )
 
 2. Include the phonebook URLconf in your project urls.py like this::
 
-      url(r'^phonebook/', include('phonebook.urls')),
+        url(r'^phonebook/', include('phonebook.urls')),
 
 3. Run ``python manage.py syncdb`` to create the phonebook models.
 
@@ -37,7 +34,7 @@ Optional parameters
 
 1. Change url for click2call in ``phonebook/settings.py`` ::
 
-    URL_CLICK_TO_CALL = getattr(settings, 'URL_CLICK_TO_CALL', 'http://my_url_click_to_call?num=')
+        URL_CLICK_TO_CALL = getattr(settings, 'URL_CLICK_TO_CALL', 'http://my_url_click_to_call?num=')
     
     If you do not use the click2call, do not change the ``phonebook/settings.py`` .
     
