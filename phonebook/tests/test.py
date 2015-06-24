@@ -50,6 +50,10 @@ class ContactViewTestCase(TestCase):
                                               email='test@test.fr', phone='0606060606', user_id=self.user)
         self.assertIsNotNone(self.contact)
 
+    def test_call_login_redirect(self):
+        response = self.client.get(reverse('phonebook_login_page'))
+        self.assertRedirects(response, reverse('phonebook_lists_contacts'))
+
     def test_call_view_lists_contacts(self):
         response = self.client.get(reverse('phonebook_lists_contacts'))
         self.assertEqual(response.status_code, 200)
