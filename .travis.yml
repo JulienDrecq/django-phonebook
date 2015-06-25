@@ -9,6 +9,7 @@ install:
   - pip install coveralls
 script:
   - coverage run --source='phonebook' manage.py test phonebook
+  - coverage report -m
 after_success:
   - coveralls
 notifications:
