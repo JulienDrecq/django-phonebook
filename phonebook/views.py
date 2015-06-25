@@ -55,7 +55,6 @@ def view_lists_contacts(request):
 
 @login_required(login_url='/phonebook/')
 def view_new_contact(request):
-    newcontact_form = ContactForm()
     if request.method == 'POST':
         newcontact_form = ContactForm(request.POST)
         if newcontact_form.is_valid():
@@ -75,6 +74,7 @@ def view_delete(request, contact_id):
     if contact:
         contact.delete()
     return redirect(reverse(view_lists_contacts))
+
 
 @login_required(login_url='/phonebook/')
 def view_edit_contact(request, contact_id):
@@ -107,6 +107,7 @@ def view_edit_contact(request, contact_id):
 def view_call(request, num=0):
     url_click_to_call = str(settings.URL_CLICK_TO_CALL) + str(num)
     return render(request, URL_RENDER['view_call'], locals())
+
 
 @login_required(login_url='/phonebook/')
 def exports_contacts(request):

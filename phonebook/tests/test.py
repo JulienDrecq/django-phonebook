@@ -24,6 +24,18 @@ class ContactTestCase(TestCase):
         form = LoginForm(data=form_data)
         self.assertEqual(form.is_valid(), True)
 
+    def test_login_page_form(self):
+        """Test login user"""
+        response = self.client.post(reverse('phonebook_login_page'),
+                                    {'username': self.user.username, 'password': 'password_test'})
+        self.assertRedirects(response, reverse('phonebook_lists_contacts'))
+
+    def test_login_page_form_fail(self):
+        """Test fail login user"""
+        response = self.client.post(reverse('phonebook_login_page'),
+                                    {'username': self.user.username, 'password': 'test_password'})
+        self.assertContains(response, 'Username or password is not correct.')
+
     def test_contact_create(self):
         """Create a contact"""
         contact = Contact.objects.create(firstname='Test firstname', lastname='Test lastname', email='test@test.fr',
@@ -61,6 +73,12 @@ class ContactViewTestCase(TestCase):
     def test_call_view_edit_contact(self):
         response = self.client.get(reverse('phonebook_edit', kwargs={'contact_id': self.contact.id}))
         self.assertEqual(response.status_code, 200)
+
+    def test_call_view_post_edit_contact(self):
+        response = self.client.post(reverse('phonebook_edit', kwargs={'contact_id': self.contact.id}),
+                                    {'firstname': self.contact.firstname, 'lastname': self.contact.lastname,
+                                     'email': self.contact.email})
+        self.assertRedirects(response, reverse('phonebook_lists_contacts'))
 
     def test_call_view_call(self):
         response = self.client.get(reverse('phonebook_call', kwargs={'num': self.contact.phone}))
