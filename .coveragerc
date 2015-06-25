@@ -1,0 +1,4 @@
+[run]
+source = phonebook
+omit = phonebook/tests/*
+branch = 1
