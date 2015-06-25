@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/JulienDrecq/django-phonebook.svg)](https://travis-ci.org/JulienDrecq/django-phonebook)
-[![Coverage Status](https://coveralls.io/repos/JulienDrecq/django-phonebook/badge.svg)](https://coveralls.io/r/JulienDrecq/django-phonebook)
+[![Build Status](https://travis-ci.org/JulienDrecq/django-phonebook.svg?branch=master)](https://travis-ci.org/JulienDrecq/django-phonebook)
+[![Coverage Status](https://coveralls.io/repos/JulienDrecq/django-phonebook/badge.svg?branch=master)](https://coveralls.io/r/JulienDrecq/django-phonebook?branch=master)
 
 **Django Phonebook**
 
