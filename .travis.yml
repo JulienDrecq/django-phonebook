@@ -6,6 +6,7 @@ env:
 install:
   - pip install coverage --use-mirrors
   - pip install -q Django==$DJANGO --use-mirrors -I
+  - pip install coveralls
 script:
   - coverage run --source='phonebook' manage.py test phonebook
 after_success:
