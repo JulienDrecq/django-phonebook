@@ -12,8 +12,3 @@ script:
   - coverage report -m
 after_success:
   - coveralls
-notifications:
-  - recipients:
-    - drecq.julien@gmail.com
-  - on_success: change
-  - on_failure: change
