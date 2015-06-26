@@ -45,7 +45,10 @@ def view_logout(request):
     return redirect(reverse(view_login))
 
 
-@login_required(login_url='/phonebook/')
+LOGIN_URL = view_login
+
+
+@login_required(login_url=LOGIN_URL)
 def view_lists_contacts(request):
     newcontact_form = ContactForm()
     URL_CLICK_TO_CALL = str(settings.URL_CLICK_TO_CALL).replace(' ', '')
@@ -53,7 +56,7 @@ def view_lists_contacts(request):
     return render(request, URL_RENDER['view_lists_contacts'], locals())
 
 
-@login_required(login_url='/phonebook/')
+@login_required(login_url=LOGIN_URL)
 def view_new_contact(request):
     if request.method == 'POST':
         newcontact_form = ContactForm(request.POST)
@@ -68,7 +71,7 @@ def view_new_contact(request):
     return redirect(reverse(view_lists_contacts))
 
 
-@login_required(login_url='/phonebook/')
+@login_required(login_url=LOGIN_URL)
 def view_delete(request, contact_id):
     contact = Contact.objects.filter(Q(user_id=request.user, id=contact_id))
     if contact:
@@ -76,7 +79,7 @@ def view_delete(request, contact_id):
     return redirect(reverse(view_lists_contacts))
 
 
-@login_required(login_url='/phonebook/')
+@login_required(login_url=LOGIN_URL)
 def view_edit_contact(request, contact_id):
     contact = Contact.objects.filter(Q(user_id=request.user, id=contact_id))
     if not contact:
@@ -103,13 +106,13 @@ def view_edit_contact(request, contact_id):
     return render(request, URL_RENDER['view_edit_contact'], locals())
 
 
-@login_required(login_url='/phonebook/')
+@login_required(login_url=LOGIN_URL)
 def view_call(request, num=0):
     url_click_to_call = str(settings.URL_CLICK_TO_CALL) + str(num)
     return render(request, URL_RENDER['view_call'], locals())
 
 
-@login_required(login_url='/phonebook/')
+@login_required(login_url=LOGIN_URL)
 def exports_contacts(request):
     response = HttpResponse(content_type='text/csv')
 
