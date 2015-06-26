@@ -80,6 +80,16 @@ class ContactViewTestCase(TestCase):
                                      'email': self.contact.email})
         self.assertRedirects(response, reverse('phonebook_lists_contacts'))
 
+    def test_call_view_post_new_contact(self):
+        response = self.client.post(reverse('phonebook_new_contact'), {'firstname': 'Tesst new firstname',
+                                                                       'lastname': 'Test new lastname',
+                                                                       'email': 'test@newtest.fr'})
+        self.assertRedirects(response, reverse('phonebook_lists_contacts'))
+
+    def test_call_view_get_new_contact(self):
+        response = self.client.get(reverse('phonebook_new_contact'))
+        self.assertRedirects(response, reverse('phonebook_lists_contacts'))
+
     def test_call_view_call(self):
         response = self.client.get(reverse('phonebook_call', kwargs={'num': self.contact.phone}))
         self.assertEqual(response.status_code, 200)
