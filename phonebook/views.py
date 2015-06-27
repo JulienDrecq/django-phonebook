@@ -37,10 +37,7 @@ def get_query(query_string, search_fields):
                 or_query = q
             else:
                 or_query = or_query | q
-        if query is None:
-            query = or_query
-        else:
-            query = query & or_query
+        query = or_query
     return query
 
 
