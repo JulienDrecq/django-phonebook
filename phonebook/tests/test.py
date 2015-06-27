@@ -109,3 +109,12 @@ class ContactViewTestCase(TestCase):
     def test_call_view_edit_contact_with_fail(self):
         response = self.client.get(reverse('phonebook_edit', kwargs={'contact_id': 9999}))
         self.assertRedirects(response, reverse('phonebook_lists_contacts'))
+
+    def test_call_view_post_search_contact(self):
+        response = self.client.post(reverse('phonebook_search_contact'), {'query': 'test@newtest.fr'})
+        self.assertRedirects(response, reverse('phonebook_search_contact_query', kwargs={'query': 'test@newtest.fr'}))
+
+    def test_call_view_get_search_contact(self):
+        response = self.client.get(reverse('phonebook_search_contact'))
+        self.assertRedirects(response, reverse('phonebook_lists_contacts'))
+

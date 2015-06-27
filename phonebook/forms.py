@@ -24,3 +24,10 @@ class ContactForm(forms.Form):
                             widget=forms.NumberInput(attrs={'class': 'form-control', 'tabindex': 4}))
     mobile_phone = forms.CharField(label=_("Mobile phone"), max_length=100, required=False,
                                widget=forms.NumberInput(attrs={'class': 'form-control', 'tabindex': 5}))
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField(label=_('Query'), max_length=100,
+                            widget=forms.TextInput(attrs={'class': 'form-control system-search', 'required': '',
+                                                          'tabindex': 1, 'autofocus': '1',
+                                                          'placeholder': _('Search contact')}))

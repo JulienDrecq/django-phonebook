@@ -13,9 +13,10 @@
     <div class="row">
 
         <div class="col-md-4 pull-left search-contact">
-            <form action="#" method="get">
+            <form id="search_form" action="{% url 'phonebook_search_contact' %}" method="post">
+                {% csrf_token %}
                 <div class="input-group">
-                    <input type="text" class="form-control" id="system-search" name="q" placeholder="{% trans "Search contact" %}" required>
+                    {{ search_form.query }}
                     <span class="input-group-btn">
                         <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-search"></i></button>
                     </span>
